@@ -10,6 +10,7 @@ const cfs_mod=require('./cfs');
 const details_mod=require('./details');
 const reg = require('./register');
 
+
 const PATH_TO_KEY='./secret.json'
 
 admin.initializeApp();
@@ -25,6 +26,7 @@ app.intent('Call For Speakers',(conv)=>{
 app.intent('Details',(conv)=>{
     details_mod.details(conv);
 })
+
 
 // *************************************************************************
 //experimenting with stuff
@@ -63,6 +65,7 @@ app.intent(`tell_latest_tip`,(conv)=>{
                     url : tip.get(FirestoreNames.URL)
                 }),
             }));
+            conv.ask(new Suggestions(['Call For Speakers'],['View Details'],['Register Now'],['About Venue']));
 
             // if(!conv.user.storage[PUSH_NOTIFICATION_ASKED]){        //can never be false if reached till this intent.
             //     conv.ask(new Suggestions('Alert me for DroidCon'));
@@ -81,6 +84,8 @@ app.intent(`setup_push`,(conv)=>{
     if(conv.user.storage[PUSH_NOTIFICATION_ASKED] === true)
     {
         conv.ask("You are already subscribed to notifications");
+        conv.ask(" Will you like to do something else")
+        conv.ask(new Suggestions('Do something else'));
     }
     else{
         conv.ask(new UpdatePermission({intent: NOTIF_INTENT}))
@@ -122,6 +127,8 @@ app.intent('unsubscribe',(conv)=>{
     if(conv.user.storage[PUSH_NOTIFICATION_ASKED] === false)
     {
         conv.ask("You are not yet subscribed to notifications ");
+        conv.ask("Will you like to do something else?");
+        conv.ask(new Suggestions(['View Details'],['About Venue']));
     }
     else
     {
@@ -142,14 +149,18 @@ app.intent('unsubscribe',(conv)=>{
             throw new Error(`FireStore query error : ${error}`);
         });
         conv.ask("Okay you won't receive notifications any more ");
+        conv.ask(new Suggestions(['View Details'],['About Venue']));
     }
 });
 app.intent('venue',(conv)=>{
     details_mod.venue(conv);
 });
 app.intent('register',(conv)=>{
-    reg.register(conv);
+    reg.ticket(conv);
 });
+app.intent('Do-something-else',(conv)=>{
+    details_mod.dosomethingelse(conv);
+})
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
 //authorizing user
