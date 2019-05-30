@@ -107,6 +107,10 @@ app.intent('finish_push_setup',(conv)=>{
             [FirestoreNames.USER_ID] : userID,
         }).then((docRef)=>{
             conv.ask(`Ok, I'll start alerting you about about DroidCon`);
+            const ssml = '<speak>'+
+                         'Ok, I will start alerting you about Droidkon' + 
+                         '</speak>';
+            conv.ask(ssml);
             conv.user.storage[PUSH_NOTIFICATION_ASKED]=true; // change this value to true manually in your device
             conv.ask(new Suggestions('Do something else'));
             return console.log(`Alerting is done`);
@@ -207,7 +211,7 @@ exports.createTip=functions.firestore
                             console.log(JSON.stringify(body));
                        });
                    });  
-                   return console.log(`Everything is done`) ;
+                   return console.log(`Everything is done`);
                   }).catch((error)=>{
                       throw new Error (`Firestore query error: ${error}`);
                   });
