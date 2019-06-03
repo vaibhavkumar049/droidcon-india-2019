@@ -2,28 +2,32 @@ const {Suggestions,LinkOutSuggestion,BasicCard,Button,Image} = require('actions-
 module.exports={
     details: function(conv){
         if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
-            conv.ask("droid con is the largest global network of developer conferences "+
+            conv.ask("droidcon is the largest global network of developer conferences "+
                 "which bring together the industry's foremost experts dedicated to"+
-                " advancing the Android platform. droid con is"+
+                " advancing the Android platform. droidcon is"+
                 " the place to meet the international Android community, learn from expert"+
                 " speakers and dive into the latest Android advances and explore cutting edge "+
-                " technologies.This year, droid con India is happening in Chennai."+
+                " technologies.This year, droidcon India is happening in Chennai."+
                  "Be sure to grab your seats for an exciting two-day conference full"+
                  " of Android. ");
 
             return;
         }
-            conv.ask("Here is more detailed info about droid con India");
+            conv.ask("Here is more detailed info about droidcon India");
+            // const ssml = '<speak>'+
+            //              'Here is more detailed info about droidkon India'+
+            //              '</speak>';
+            // conv.ask(ssml);
             conv.ask(new BasicCard({
                 text: "droid con is the largest global network of developer conferences "+
                     "which bring together the industry's foremost experts dedicated to"+
-                    " advancing the Android platform. droid con is"+
+                    " advancing the Android platform. droidcon is"+
                     " the place to meet the international Android community, learn from expert"+
                     " speakers and dive into the latest Android advances and explore cutting edge "+
-                    " technologies.This year, droid con India is happening in Chennai."+
+                    " technologies.This year, droidcon India is happening in Chennai."+
                     "Be sure to grab your seats for an exciting two-day conference full"+
                     " of Android. ",
-                title : "droid con India 2019",
+                title : "droidcon India 2019",
                 subtitle : "Nov 2nd-3rd | Chennai",
                 buttons: new Button({
                     title : "Know more",
@@ -31,7 +35,7 @@ module.exports={
                 }),
                 image: new Image({
                     url : "https://i.ibb.co/gyLnrkr/image.jpg",
-                    alt : "Droid Con poster"
+                    alt : "DroidCon poster"
                 }),
                 
             })),
@@ -42,7 +46,7 @@ module.exports={
 
     },
     venue : function(conv) {
-        conv.ask('This year droid con would be held at Chennai. Exact location details would be available shortly. You can subscribe to notificaitons for receiving updates.');
+        conv.ask('This year droidcon would be held at Chennai. Exact location details would be available shortly. You can subscribe to notificaitons for receiving updates.');
     //     conv.ask(new BasicCard({
     //     text: `The University of Engineering & Management (UEM), Kolkata is a private university located in Action Area - III of New Town, Kolkata. It provides engineering, technological & management education`,
     //     image: new Image({
