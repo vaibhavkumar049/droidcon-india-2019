@@ -162,6 +162,31 @@ app.intent('venue',(conv)=>{
 app.intent('register',(conv)=>{
     reg.ticket(conv);
 });
+
+app.intent('cup-cake', (conv)=>{
+    reg.cup_cake(conv);
+})
+app.intent('students',(conv)=>{
+    reg.student(conv);
+})
+app.intent('Volunteer',(conv)=>{
+    reg.volunteer(conv);
+});
+
+app.intent('follow',(conv,params,options)=>{
+    console.log(`Param data :- ${params}`);
+    if (options === 'cup-cake')
+            reg.cup_cake(conv);
+        else if(options === 'students')
+            reg.student(conv);
+        else
+        {
+            conv.ask(`Sorry no options matched. Do something else?`);
+            console.log(options);
+            conv.ask(new Suggestions(["Cupcake tickets"],['Student Tickets'],['Give me updates']));
+        }
+})
+
 app.intent('Do-something-else',(conv)=>{
     details_mod.dosomethingelse(conv);
 })
