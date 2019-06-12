@@ -4,24 +4,29 @@ module.exports={
    cup_cake: function(conv){
     if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
         conv.ask(`Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others! To buy ticket you can visit droid con website.`)
+        // conv.ask('Cupcake the first of the best. The one which introduced android to the whole world.')
         conv.ask(`Would you like to do something else ?`);
         return;
     }
        conv.ask(new SimpleResponse({
-           text:`you can find droid con ticket here`,
+           text:`Here is more info about cupcake tickets.`,
+        //    speech:'Cupcake the first of the best. The one which introduced android to the whole world.',
            speech:`Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others!`
+
        }));
        conv.ask(new BasicCard({
            text:"Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others! Buying this ticket means you get to attend the conference at the lowest price. Prices would go up as the conference dates get closer. Limited quantities only.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
+            // text:"Cupcake the first of the best. The one which introduced android to the whole world. Visit the site for more details.",
            title:"CUPCAKE TICKET",
            subtitle:"Super Early Bird",
            buttons: new Button({
-               title:"BOOK TICKET",
+               title:"GET TICKETS",
+            //    url:"https://www.in.droidcon.com/",
                url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
            }),
            image: new Image({
                url:"https://s3.gifyu.com/images/giphy567a9f7ab6114e19.gif",
-               alt:"ticket booking",
+               alt:"cupcake tickets",
            })
        }));
        conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
@@ -29,26 +34,30 @@ module.exports={
    student: function(conv){
     if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
         conv.ask(`If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.`)
-        conv.ask(`Would you like to do something else ?`);
+        // conv.ask('If you are a student then this is for you. Visit the site for more details')
+        
         return;
     }
        conv.ask(new SimpleResponse({
-           text:`you can find droidcon student ticket here`,
-           speech:`If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.`
+           text:`Here is more info about student tickets`,
+           speech:`If you are a student then this is for you. We have limited quantities of student tickets so grab them before they are gone.`
        }));
        conv.ask(new BasicCard({
            text:"If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
+            // text:"If you are a student then this is for you. Visit the site for more details.",
            title:"STUDENT TICKET",
         //    subtitle:"Super Early Bird",
            buttons: new Button({
-               title:"BOOK TICKET",
+               title:"GET TICKETS",
+            //    url:"https://www.in.droidcon.com/",
                url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
            }),
            image: new Image({
                url:"https://i.ibb.co/rQRv8VL/students.png",
-               alt:"ticket booking",
+               alt:"student ticket",
            })
        }));
+       conv.ask(`Would you like to do something else ?`);
        conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
    },
    ticket: function(conv){
@@ -57,7 +66,7 @@ module.exports={
         return;
       }
       
-      conv.ask('The following tickets are available right now.');
+      conv.ask('Choose the one you would like to know about.');
       // Create a carousel
       conv.ask(new Carousel({
         items: {
@@ -82,7 +91,7 @@ module.exports={
         //       'Assistant on the Google Home',
         //   ],
             title: 'STUDENT TICKETS',
-            description: 'Get tickets at lower price only for students',
+            description: 'For Students only.',
             image: new Image({
               url: 'https://i.ibb.co/tzHPqwn/studenttix.gif',
               alt: 'Student tickets',
@@ -114,6 +123,7 @@ module.exports={
                alt:"Volunteers",
            })
        }));
+       conv.ask('What would you like to do now?');
        conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
    }
 }
