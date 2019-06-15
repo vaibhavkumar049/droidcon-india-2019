@@ -65,6 +65,7 @@ app.intent(`tell_latest_tip`,(conv)=>{
                     url : tip.get(FirestoreNames.URL)
                 }),
             }));
+            conv.ask('What would you like to do now?');
             conv.ask(new Suggestions(['Call For Speakers'],['View Details'],['Register Now'],['About Venue']));
 
             // if(!conv.user.storage[PUSH_NOTIFICATION_ASKED]){        //can never be false if reached till this intent.
@@ -174,7 +175,6 @@ app.intent('Volunteer',(conv)=>{
 });
 
 app.intent('follow',(conv,params,options)=>{
-    console.log(`Param data :- ${params}`);
     if (options === 'cup-cake')
             reg.cup_cake(conv);
         else if(options === 'students')

@@ -19,7 +19,7 @@ module.exports={
             //              '</speak>';
             // conv.ask(ssml);
             conv.ask(new BasicCard({
-                text: "droid con is the largest global network of developer conferences "+
+                text: "droidcon is the largest global network of developer conferences "+
                     "which bring together the industry's foremost experts dedicated to"+
                     " advancing the Android platform. droidcon is"+
                     " the place to meet the international Android community, learn from expert"+
