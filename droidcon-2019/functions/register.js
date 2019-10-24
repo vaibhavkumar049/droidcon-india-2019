@@ -3,38 +3,38 @@ const {BasicCard,Image,Button,Suggestions,SimpleResponse,Carousel}=require('acti
 module.exports={
    cup_cake: function(conv){
     if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
-        conv.ask(`Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others! To buy ticket you can visit droid con website.`)
+        conv.ask(`These are regular priced tickets. The prices would go up as the conference dates are closer. To buy ticket you can visit droidcon website.`)
         // conv.ask('Cupcake the first of the best. The one which introduced android to the whole world.')
         conv.ask(`Would you like to do something else ?`);
         return;
     }
        conv.ask(new SimpleResponse({
-           text:`Here is more info about cupcake tickets.`,
+           text:`Here is more info about pie tickets.`,
         //    speech:'Cupcake the first of the best. The one which introduced android to the whole world.',
-           speech:`Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others!`
+           speech:`These are regular priced tickets. The prices would go up as the conference dates are closer`
 
        }));
        conv.ask(new BasicCard({
-           text:"Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others! Buying this ticket means you get to attend the conference at the lowest price. Prices would go up as the conference dates get closer. Limited quantities only.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
-            // text:"Cupcake the first of the best. The one which introduced android to the whole world. Visit the site for more details.",
-           title:"CUPCAKE TICKET",
-           subtitle:"Super Early Bird",
+        //    text:"Cupcake the first of the best. The one which introduced android to the whole world, You will be one of the elite few to buy the conference tickets before others! Buying this ticket means you get to attend the conference at the lowest price. Prices would go up as the conference dates get closer. Limited quantities only.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
+            text:"These are regular priced tickets. The prices would go up as the conference dates are closer. Visit the site for more details.",
+           title:"PIE TICKET",
+           subtitle:"Regular Priced Tickets",
            buttons: new Button({
-               title:"GET TICKETS",
-            //    url:"https://www.in.droidcon.com/",
-               url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
+               title:"SHOW DETAILS",
+               url:"https://www.in.droidcon.com/",
+            //    url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
            }),
            image: new Image({
                url:"https://s3.gifyu.com/images/giphy567a9f7ab6114e19.gif",
-               alt:"cupcake tickets",
+               alt:"Pie tickets",
            })
        }));
        conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
    },
    student: function(conv){
     if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
-        conv.ask(`If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.`)
-        // conv.ask('If you are a student then this is for you. Visit the site for more details')
+        // conv.ask(`If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.`)
+        conv.ask('If you are a student then this is for you. Visit the site for more details')
         
         return;
     }
@@ -43,14 +43,14 @@ module.exports={
            speech:`If you are a student then this is for you. We have limited quantities of student tickets so grab them before they are gone.`
        }));
        conv.ask(new BasicCard({
-           text:"If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
-            // text:"If you are a student then this is for you. Visit the site for more details.",
+        //    text:"If you are a student and cannot afford the higher priced tickets, this is for you. We have limited quantities of student tickets so grab them before they are gone.Ticket price covers Entry to conference, talk/workshop, lunch, coffee/tea.",
+            text:"If you are a student then this is for you. Visit the site for more details.",
            title:"STUDENT TICKET",
         //    subtitle:"Super Early Bird",
            buttons: new Button({
-               title:"GET TICKETS",
-            //    url:"https://www.in.droidcon.com/",
-               url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
+               title:"SHOW DETAILS",
+               url:"https://www.in.droidcon.com/",
+            //    url:"https://www.townscript.com/e/droidcon-india-at-chennai-2019-303302",
            }),
            image: new Image({
                url:"https://i.ibb.co/rQRv8VL/students.png",
@@ -62,7 +62,7 @@ module.exports={
    },
    ticket: function(conv){
     if (!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
-        conv.ask('Cupcake tickets are available right now. It offers tickets at the lowest price. Visit the site and get one before it ends. Also if you are a student you can get student tickets at a much lower price.');
+        conv.ask('Pie tickets are available right now. Visit the site and get one before it ends. Also if you are a student you can get student tickets at a much lower price.');
         return;
       }
       
@@ -71,17 +71,17 @@ module.exports={
       conv.ask(new Carousel({
         items: {
           // Add the first item to the carousel
-          'cup-cake': {
+          'pie': {
             // synonyms: [
             //   'synonym 1',
             //   'synonym 2',
             //   'synonym 3',
             // ],
-            title: 'CUPCAKE TICKETS',
-            description: 'Super Early Bird Tickets.',
+            title: 'Pie Tickets',
+            description: 'Regular Priced tickets',
             image: new Image({
               url: 'https://i.ibb.co/Lkhgq1F/cup.jpg',
-              alt: 'Cup cake tickets',
+              alt: 'Pie tickets',
             }),
           },
           // Add the second item to the carousel
