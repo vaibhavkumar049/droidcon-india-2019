@@ -14,12 +14,7 @@ module.exports={
             `developers attending our events in 22 cities. We have differnt track like Android,`+
             " FIrebase, Kotlin , AR, etc. We are encouraging you to Submit your talk.  ",
             title : "CALL FOR SPEAKERS",
-            subtitle : "Last Date : 15 Aug 2019",
-            buttons: new Button({
-                title: " Submit your talk",
-                url: "https://sessionize.com/droidcon-india-2019-in-chennai/",
-
-            }),
+            subtitle : "Not accepting any more.",
             image: new Image({
                 url: "https://i.ibb.co/gyLnrkr/image.jpg",
                 alt : "DroidCon Image",

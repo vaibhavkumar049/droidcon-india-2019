@@ -9,6 +9,8 @@ const welcome_mod=require('./welcome');
 const cfs_mod=require('./cfs');
 const details_mod=require('./details');
 const reg = require('./register');
+const speaker = require('./speakers');
+const session = require('./sessions');
 
 
 const PATH_TO_KEY='./secret.json'
@@ -173,9 +175,21 @@ app.intent('students',(conv)=>{
 app.intent('Volunteer',(conv)=>{
     reg.volunteer(conv);
 });
+app.intent('speakers',(conv) => {
+    speaker.speakers(conv);
+});
+app.intent('speakerDetails', (conv,params,options) => {
+    speaker.speakerDetails(conv,options);
+})
+app.intent('sessions',(conv) => {
+    session.sessions(conv);
+});
+app.intent('sessionDetails', (conv,params,options) => {
+    session.sessionDetails(conv,options);
+})
 
 app.intent('follow',(conv,params,options)=>{
-    if (options === 'cup-cake')
+    if (options === 'pie')
             reg.cup_cake(conv);
         else if(options === 'students')
             reg.student(conv);

@@ -46,18 +46,18 @@ module.exports={
 
     },
     venue : function(conv) {
-        conv.ask('This year droidcon would be held at Chennai. Exact location details would be available shortly. You can subscribe to notificaitons for receiving updates.');
-    //     conv.ask(new BasicCard({
-    //     text: `The University of Engineering & Management (UEM), Kolkata is a private university located in Action Area - III of New Town, Kolkata. It provides engineering, technological & management education`,
-    //     image: new Image({
-    //         url: `https://thumb.ibb.co/gh4gB9/cropped-uem.png`,
-    //         alt:  `UEM Kolkata`,
-    //     }),
-    //     buttons: new Button({
-    //         title: 'Find UEM on Google Maps',
-    //         url: `https://www.google.com/maps/search/?api=1&query=uem+kolkata`,
-    //     }),
-    // }));
+        conv.ask('Droidcon 2019 would be held at Hotel Green Park, Chennai');
+        conv.ask(new BasicCard({
+        text: `Hotel Green Park \nN.S.K. Salai, Arcot Road, Vadapalani, \nChennai, Tamil Nadu 600026, India`,
+        image: new Image({
+            url: `https://i.ibb.co/KxQx1yk/greenpark.jpg`,
+            alt:  `Hotel Green Park`,
+        }),
+        buttons: new Button({
+            title: 'Find Hotel Green Park on Google Maps',
+            url: `https://g.page/greenparkchennai?share`,
+        }),
+    }));
     conv.ask(new Suggestions(['Details'],['Notify me'],['Exit']));
     },
     dosomethingelse: function(conv){
