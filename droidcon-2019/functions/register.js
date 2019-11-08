@@ -29,7 +29,7 @@ module.exports={
                alt:"Pie tickets",
            })
        }));
-       conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
+       conv.ask(new Suggestions(["About the event"],['Sessions'],['Give me updates']))
    },
    student: function(conv){
     if(!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')){
@@ -58,7 +58,7 @@ module.exports={
            })
        }));
        conv.ask(`Would you like to do something else ?`);
-       conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
+       conv.ask(new Suggestions(["About the event"],['Speakers'],['Give me updates']))
    },
    ticket: function(conv){
     if (!conv.surface.capabilities.has('actions.capability.SCREEN_OUTPUT')) {
@@ -124,7 +124,7 @@ module.exports={
            })
        }));
        conv.ask('What would you like to do now?');
-       conv.ask(new Suggestions(["About the event"],['Call For Speakers'],['Give me updates']))
+       conv.ask(new Suggestions(["About Venue"],['Sessions'],['Give me updates']))
    }
 }
 

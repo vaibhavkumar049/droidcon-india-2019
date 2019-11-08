@@ -23,6 +23,7 @@ module.exports = {
             title: 'Sessions List',
             items: listDetails,
         }))
+        conv.ask('What would you like to do now?');
         conv.ask(new Suggestions(['Speakers'],['Details'],['Exit']));
     },
 
@@ -43,6 +44,7 @@ module.exports = {
             }
         })
         conv.ask(new BasicCard(sessionDetails));
+        conv.ask('What would you like to do now?');
         conv.ask(new Suggestions(['Venue'],['Speakers'],['Exit']))
     }
 }

@@ -20,7 +20,7 @@ module.exports={
                 alt : "DroidCon Image",
             }),
         }));
-        conv.ask(new Suggestions(['View Details'],['About Venue']));
+        conv.ask(new Suggestions(['Sessions'],['View Details'],['About Venue']));
 
     }
 }

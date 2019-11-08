@@ -41,7 +41,7 @@ module.exports={
             })),
 
         conv.ask(" What would you like to know now?");
-        conv.ask(new Suggestions(['Call For Speakers'],['Register Now'],['Give me updates']));
+        conv.ask(new Suggestions(['Sessions'],['Register Now'],['Give me updates']));
 
 
     },
